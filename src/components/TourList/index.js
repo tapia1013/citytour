@@ -8,13 +8,27 @@ class TourList extends Component {
     tours: tourData
   }
 
+  removeTour = id => {
+    console.log(id)
+  }
+
   render() {
-    console.log(this.state.tours)
+    // console.log(this.state.tours);
+
+    const { tours } = this.state
+
     return (
-      <div>
-        Hello From TourList
-        <Tour />
-      </div>
+      <section className="TourList">
+        {
+          tours.map((tour) => (
+            <Tour
+              key={tour.id}
+              tour={tour}
+              removeTour={this.removeTour}
+            />
+          ))
+        }
+      </section>
     )
   }
 }
